@@ -24,6 +24,8 @@ def getContour(img):
                     objectType = "Square"
                 else:
                     objectType = "Rectangle"
+            elif objCorners > 4:
+                objectType = "Circle"
             else:
                 objectType = "None"
 

@@ -33,26 +33,11 @@ while 1:
         cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 5)
         roi_gray = gray[y:y + h, x:x + w]
         roi_color = img[y:y + h, x:x + w]
-
         arr = {y: y + h, x: x + w}
-        print(arr)
-
-        print('X :' + str(x))
-        print('Y :' + str(y))
-        print('x+w :' + str(x + w))
-        print('y+h :' + str(y + h))
-
         xx = int(x + (x + h)) / 2
         yy = int(y + (y + w)) / 2
-
-        print(xx)
-        print(yy)
-
         center = (xx, yy)
-
-        print("Center of Rectangle is :", center)
         data = "X{0:d}Y{1:d}Z".format(xx, yy)
-        print("output = '" + data + "'")
         arduino.write(data)
 
     cv2.imshow('img', img)
